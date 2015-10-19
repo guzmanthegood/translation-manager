@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'welcome#home'
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/devel/emails"
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
